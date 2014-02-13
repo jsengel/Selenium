@@ -5,6 +5,10 @@
 	<artifactId>Selenium</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
 	<build>
 		<plugins>
 			<plugin>
@@ -19,26 +23,27 @@
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
 				<configuration>
 					<path>/</path>
 				</configuration>
 				<executions>
 					<execution>
 						<id>tomcat-run</id>
+						<phase>pre-integration-test</phase>
 						<goals>
 							<goal>run</goal>
 						</goals>
-						<phase>pre-integration-test</phase>
 						<configuration>
 							<fork>true</fork>
 						</configuration>
 					</execution>
 					<execution>
 						<id>tomcat-shutdown</id>
+						<phase>post-integration-test</phase>
 						<goals>
 							<goal>shutdown</goal>
 						</goals>
-						<phase>post-integration-test</phase>
 					</execution>
 				</executions>
 			</plugin>

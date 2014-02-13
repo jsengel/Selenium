@@ -1,4 +1,4 @@
-package fr.jeromesengel.selenium.it;
+package fr.jeromesengel.selenium.home;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -9,15 +9,12 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import fr.jeromesengel.selenium.common.Result;
 
 public class HomeTestIT {
 
 	private static FirefoxDriver driver;
-	private static Wait wait;
 
 	@BeforeClass
 	public static void before() {
@@ -30,13 +27,12 @@ public class HomeTestIT {
 
 		driver = new FirefoxDriver(profile);
 		driver.manage().deleteAllCookies();
-		wait = new WebDriverWait(driver, 10);
 	}
 
 	@AfterClass
 	public static void after() {
 		if (driver != null) {
-			//driver.close();
+			driver.close();
 		}
 	}
 

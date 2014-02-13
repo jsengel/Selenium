@@ -1,4 +1,4 @@
-package fr.jeromesengel.selenium.ut;
+package fr.jeromesengel.selenium.home;
 
 import static org.junit.Assert.assertEquals;
 
